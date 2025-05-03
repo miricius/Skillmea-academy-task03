@@ -8,8 +8,9 @@
 	<title>PLAYDATE FUN TIMES</title>
 
 	<link rel="stylesheet" href="./css/app.css">
-	<link rel="stylesheet" href="./css/header.css">
 	<link rel="stylesheet" href="./css/cards.css">
+	<link rel="stylesheet" href="./css/form.css">
+	<link rel="stylesheet" href="./css/header.css">
 
 	<script defer src="./js/main.js"></script>
 </head>
@@ -21,6 +22,24 @@
 	</header>
 
 	<main>
+		<form action="" class="addingForm">
+			<div class="headingArea">
+				<label for="heading">Zadaj text nadpisu:</label>
+				<input type="text" name="heading" id="heading">
+			</div>
+			<div class="paragraphArea">
+				<label for="paragraph">Zadaj text odstavca:</label>
+				<textarea name="paragraph" id="paragraph" rows="5"></textarea>
+			</div>
+			<div class="toStartArea">
+				<label for="toStart">Na začiatok?</label>
+				<input type="checkbox">
+			</div>
+			<div class="buttonArea">
+				<button>Pridať kartu</button>
+			</div>
+		</form>
+
 		<section class="cards">
 			<ul class="card-list">
 				<li class="sdk">
