@@ -14,7 +14,12 @@ function addCard(headingText, paragraphText, addToStart) {
 	
 	//vytvor novy <li> element a prirad mu class
 	let newCard = document.createElement('li');
-	newCard.classList.add('inside');
+	newCard.classList.add('animate__animated');
+	if (document.getElementById('toStart').checked) {
+		newCard.classList.add('animate__zoomInDown');
+	} else {
+		newCard.classList.add('animate__zoomInUp');
+	}
 
 	//vytvor nadpis
 	let newHeading = document.createElement('H3');
