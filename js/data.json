@@ -1,0 +1,30 @@
+[{
+    "name": "Karta 1",
+    "heading": "Nadpis 1",
+    "paragraph": "Text 1",
+    "toStart": true
+},
+{
+    "name": "Karta 2",
+    "heading": "Nadpis 2",
+    "paragraph": "Text 2",
+    "toStart": false
+},
+{
+    "name": "Karta 3",
+    "heading": "Nadpis 3",
+    "paragraph": "Text 3",
+    "toStart": false
+},
+{
+    "name": "Karta 4",
+    "heading": "Nadpis 4",
+    "paragraph": "Text 4",
+    "toStart": false
+},
+{
+    "name": "Karta 5",
+    "heading": "Nadpis 5",
+    "paragraph": "Text 5",
+    "toStart": false
+}]
