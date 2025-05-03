@@ -1,30 +1,25 @@
 [{
-    "name": "Karta 1",
-    "heading": "Nadpis 1",
-    "paragraph": "Text 1",
+    "heading": "Zemeplocha",
+    "paragraph": "Ale vražda je vražda podle každého zákona, dokonce i tam, kde žádný zákon není.",
     "toStart": true
 },
 {
-    "name": "Karta 2",
-    "heading": "Nadpis 2",
-    "paragraph": "Text 2",
+    "heading": "Čarodej Zememorí",
+    "paragraph": "Ged sa musí naučiť rozoznávať nielen dobro a zlo.",
     "toStart": false
 },
 {
-    "name": "Karta 3",
-    "heading": "Nadpis 3",
-    "paragraph": "Text 3",
+    "heading": "Alica v krajine zázrakov",
+    "paragraph": "Budete nasledovať bieleho králika do jeho nory?",
     "toStart": false
 },
 {
-    "name": "Karta 4",
-    "heading": "Nadpis 4",
-    "paragraph": "Text 4",
-    "toStart": false
+    "heading": "Letopisy Narnie",
+    "paragraph": "Ako skrotiť leva a odložiť ho do skrine?",
+    "toStart": true
 },
 {
-    "name": "Karta 5",
-    "heading": "Nadpis 5",
-    "paragraph": "Text 5",
-    "toStart": false
+    "heading": "Meno vetra",
+    "paragraph": "Kedy už konečne vyjde tretia kniha???!!!",
+    "toStart": true
 }]
