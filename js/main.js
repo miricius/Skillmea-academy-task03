@@ -56,7 +56,6 @@ function addCard(headingText, paragraphText, addToStart) {
 */
 
 document.getElementById('button').addEventListener('click', function(e) {
-	
 	// Zabranime defaultnemu odoslaniu a reloadu stranky
 	e.preventDefault();
 
@@ -69,3 +68,15 @@ document.getElementById('button').addEventListener('click', function(e) {
 	
 	addCard(heading, paragraph, toStart);
 });
+
+function pridajKartu() {
+
+	// Z formulara zistime hodnoty pre nadpis a telo
+	let heading = document.getElementById('heading').value;
+	let paragraph = document.getElementById('paragraph').value;
+
+	// Zistime, ci novu kartu pridat na zaciatok alebo na koniec zoznamu
+	let toStart = document.getElementById('toStart').checked;
+
+	addCard(heading, paragraph, toStart);
+}
