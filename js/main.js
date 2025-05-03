@@ -52,8 +52,8 @@ function addCard(headingText, paragraphText, addToStart) {
 // addCard('Nadpis', 'Text', false);
 
 
-// Uloha 03b
-// *********
+// Uloha 03b, c
+// ************
 
 /*	Vytvorenie formulara, do ktoreho uzivatel zada
 	text pre nadpis a telo karty. Dalej zada, ci
@@ -74,7 +74,7 @@ document.getElementById('button').addEventListener('click', function(e) {
 	addCard(heading, paragraph, toStart);
 });
 
-function pridajKartu() {
+function pridajKartyJSON() {
 
 	// Z formulara zistime hodnoty pre nadpis a telo
 	let heading = document.getElementById('heading').value;
@@ -83,5 +83,15 @@ function pridajKartu() {
 	// Zistime, ci novu kartu pridat na zaciatok alebo na koniec zoznamu
 	let toStart = document.getElementById('toStart').checked;
 
-	addCard(heading, paragraph, toStart);
+	// Uloha 03d, e
+	// ************
+
+fetch('./js/data.json')
+.then(response => response.json())
+.then(data => {
+  data.forEach(item => {
+	  addCard(item.heading, item.paragraph, item.toStart);
+  });
+})
+.catch(error => console.error('Chyba pri načítaní JSON:', error));
 }
