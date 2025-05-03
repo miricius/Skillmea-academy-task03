@@ -7,6 +7,9 @@
 	Uzivatel si zada nadpis a text karty vo formulári na stránke.
 */
 
+//	Vytvorime prazdne pole pre karty, ktore neskor naplnime z JSON suboru
+const cards = [];
+
 // Funkcia na pridanie novej karty
 function addCard(headingText, paragraphText, addToStart) {
 	//najdi zoznam kariet
@@ -76,22 +79,25 @@ document.getElementById('button').addEventListener('click', function(e) {
 
 function pridajKartyJSON() {
 
-	// Z formulara zistime hodnoty pre nadpis a telo
-	let heading = document.getElementById('heading').value;
-	let paragraph = document.getElementById('paragraph').value;
-
-	// Zistime, ci novu kartu pridat na zaciatok alebo na koniec zoznamu
-	let toStart = document.getElementById('toStart').checked;
-
 	// Uloha 03d, e
 	// ************
 
+//	Extrahujeme data z JSON a ulozime je do pola
 fetch('./js/data.json')
 .then(response => response.json())
 .then(data => {
-  data.forEach(item => {
-	  addCard(item.heading, item.paragraph, item.toStart);
+  data.forEach(card => {
+	cards.push({
+		heading: card.heading,
+		paragraph: card.paragraph,
+		toStart: card.toStart
+	});
   });
+
+  	//	Prechadzame pole a doplnime vsetky nove karty
+	cards.forEach((card) => {
+		addCard(card.heading, card.paragraph, card.toStart);
+	});
 })
 .catch(error => console.error('Chyba pri načítaní JSON:', error));
 }
