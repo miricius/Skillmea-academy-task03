@@ -1,5 +1,20 @@
 // Konstanty a funkcie
 
+//Funkcia pre klikanie na obrazok
+function klikniNaObrazok() {
+    // Najdeme vsetky obrazky
+    const images = document.querySelectorAll('.group img');
+    // Pre kazdy obrazok pridame event listener
+    images.forEach((img) => {
+        img.addEventListener('click', () => {
+            // Zvysime score o 1
+            img.parentElement.querySelector('p').innerText =
+                Number(img.parentElement.querySelector('p').innerText) + 1;
+        });
+    });
+
+}
+
 // Funkcia pre pridanie noveho obrazku z formulara
 function pridajTypka() {
     // Najdeme rodica vsetkych obrazkov
@@ -45,20 +60,12 @@ function pridajTypka() {
     newDiv.appendChild(newScore);
     // Pridame div do parenta
     parent.appendChild(newDiv);
+
+    // Pridame event listener na obrazky
+    klikniNaObrazok();
 }
 
 // MAIN PROGRAM
 //------------------------------------------------------------
 
-// Najdeme rodica vsetkych obrazkov
-const parent = document.querySelector('.group:last-child');
-
-// Cyklus pre vsetky obrazky na stranke (v triede .group)
-parent.querySelectorAll('img').forEach((img) => {
-    // Po kliknuti na obrazok sa zvysi score o 1
-    img.addEventListener('click', () => {
-        // Zobrazime alert s menom obrazka
-        img.parentElement.querySelector('p').innerText =
-            Number(img.parentElement.querySelector('p').innerText) + 1;
-    });
-});
+klikniNaObrazok(); // Pridame event listener na obrazky
