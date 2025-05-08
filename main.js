@@ -12,7 +12,6 @@ function klikniNaObrazok() {
                 Number(img.parentElement.querySelector('p').innerText) + 1;
         });
     });
-
 }
 
 // Funkcia pre pridanie noveho obrazku z formulara
@@ -61,11 +60,15 @@ function pridajTypka() {
     // Pridame div do parenta
     parent.appendChild(newDiv);
 
-    // Pridame event listener na obrazky
-    klikniNaObrazok();
+    // Pridame event listener na novy obrazok
+    newImg.addEventListener('click', () => {
+        // Zvysime score o 1
+        newScore.innerText = Number(newScore.innerText) + 1;
+    });
 }
 
 // MAIN PROGRAM
 //------------------------------------------------------------
 
-klikniNaObrazok(); // Pridame event listener na obrazky
+
+klikniNaObrazok(); 
