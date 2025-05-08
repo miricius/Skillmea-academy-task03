@@ -1,5 +1,7 @@
 // Konstanty a funkcie
 
+let speed = 2; // Rychlost pohybu obrazku
+
 //Funkcia pre klikanie na obrazok
 function klikniNaObrazok() {
     // Najdeme vsetky obrazky
@@ -67,8 +69,46 @@ function pridajTypka() {
     });
 }
 
+//Hra s obrazkami
+function addGamePicture() {
+    // Pridame novy obrazok na stranku
+    const newPicture = document.createElement('img');
+    newPicture.src = './images/vasho.jpg';
+    //newPicture.classList.add('gamePic');
+
+    // Horizontalna poloha obrazku bude nahodna
+    const randomX = Math.random() * (window.innerWidth - 150);
+    newPicture.style.left = randomX + 'px';
+
+    //Najdeme sekciu gameBoard a pridame do nej obrazok
+    const gameBoard = document.querySelector('.gameBoard');
+    gameBoard.appendChild(newPicture);
+
+    let posY = 0;
+    let interval = setInterval(() => {
+        // Posunieme obrazok dole
+        posY += speed;
+        newPicture.style.top = posY + 'px';
+
+        // Ak sa obrazok dostane mimo obrazovky, zastavime interval
+        if (posY > window.innerHeight-180) {
+            clearInterval(interval);
+            gameBoard.removeChild(newPicture);
+        }
+    }, 10);
+}
+
+function startGame () {
+    let interval = setInterval(() => {
+        // Pridame novy obrazok na stranku
+        addGamePicture();
+    }, 1000); // Obrazok sa bude pridavat kazdu sekundu
+}
+
 // MAIN PROGRAM
 //------------------------------------------------------------
 
+// Klikanie na obrazok
+klikniNaObrazok();
 
-klikniNaObrazok(); 
+
