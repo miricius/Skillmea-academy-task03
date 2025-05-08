@@ -439,22 +439,7 @@ textarea:focus {
 	transition: .2s all ease-in-out;
 }
 
-.gamePic {
-	animation-name: translate;
-	animation-duration: 3s;
-	animation-delay: 0.5s;
-}
-
-@keyframes translate {
-	0% {
-	  transform: translate(0, 0);
-	}
-	100% {
-	  transform: translate(0, 100%);
-	}
-  }
-
-  .gameBoard img {
+.gameBoard img {
 	position: absolute;
 	z-index: 5;
 	width: 140px;

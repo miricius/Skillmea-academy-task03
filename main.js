@@ -1,6 +1,9 @@
 // Konstanty a funkcie
 
-let speed = 2; // Rychlost pohybu obrazku
+let gameOver = false; // Premenna pre koniec hry
+let gameSpeed = 2; // Rychlost pohybu obrazku
+let gameScore = 0; // Skore hry
+const windowHeight = window.innerHeight; // Vyska okna prehliadaca
 
 //Funkcia pre klikanie na obrazok
 function klikniNaObrazok() {
@@ -87,28 +90,54 @@ function addGamePicture() {
     let posY = 0;
     let interval = setInterval(() => {
         // Posunieme obrazok dole
-        posY += speed;
-        newPicture.style.top = posY + 'px';
-
+        posY += gameSpeed;
         // Ak sa obrazok dostane mimo obrazovky, zastavime interval
-        if (posY > window.innerHeight-180) {
-            clearInterval(interval);
-            gameBoard.removeChild(newPicture);
-        }
+        if (posY > (windowHeight-180)) {
+            gameOver = true; // Nastavime koniec hry
+
+            // Zobrazime vsetky obrazky, ktore su na obrazovke
+            let oldPics = document.querySelectorAll('.gameBoard img');
+            oldPics.forEach((img) => {
+                img.remove(); // Odstranime vsetky obrazky
+            });
+         }
+        newPicture.style.top = posY + 'px';
     }, 10);
+    
+    // Pridame si udalost pre kliknutie na obrazok
+    // Ak sa obrazok dostane mimo obrazovky, zastavime interval
+    newPicture.addEventListener('click', () => {
+        clearInterval(interval);
+        gameBoard.removeChild(newPicture);
+        gameScore += 1; // Zvysime skore o 1
+    });
+
+    // Po kazdom obrazku sa rychlost zvysi o 5%
+    gameSpeed *= 1.05;
+
+ /*   // Ak je obrazok na spodku obrazovky, hra konci
+    console.log(newPicture.style.top.value);
+    if (posY >= window.innerHeight) {
+        alert("Koniec hry");
+    }
+*/
 }
 
 function startGame () {
     let interval = setInterval(() => {
         // Pridame novy obrazok na stranku
-        addGamePicture();
+        if (!gameOver) {
+            addGamePicture();
+        } else {
+            clearInterval(interval); // Zastavime interval
+            alert(`Koniec hry. Tvoje skóre je ${gameScore}`); // Zobrazime skore
+        }
     }, 1000); // Obrazok sa bude pridavat kazdu sekundu
 }
+
 
 // MAIN PROGRAM
 //------------------------------------------------------------
 
 // Klikanie na obrazok
 klikniNaObrazok();
-
-
