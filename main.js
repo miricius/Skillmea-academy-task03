@@ -1,15 +1,12 @@
-// Najdeme obrazok a score Mitcha
-const mitchPic = document.querySelector('.mitch img');
-const mitchScore = document.querySelector('.mitch p');
+// Najdeme rodica vsetkych obrazkov
+const parent = document.querySelector('.group');
 
-// Najdeme obrazok a score Vasa
-const vashoPic = document.querySelector('.vasho img');
-const vashoScore = document.querySelector('.vasho p');
-
-// Po kliknuti na obrazok sa zvysi score o 1
-mitchPic.addEventListener('click', () => {
-    mitchScore.innerText = Number(mitchScore.innerText) + 1;
-});
-vashoPic.addEventListener('click', () => {
-    vashoScore.innerText = Number(vashoScore.innerText) + 1;
+// Cyklus pre vsetky obrazky na stranke (v triede .group)
+parent.querySelectorAll('img').forEach((img) => {
+    // Po kliknuti na obrazok sa zvysi score o 1
+    img.addEventListener('click', () => {
+        // Zobrazime alert s menom obrazka
+        img.parentElement.querySelector('p').innerText =
+            Number(img.parentElement.querySelector('p').innerText) + 1;
+    });
 });
