@@ -3,7 +3,7 @@
 function fillInArray() {
     const array = [];
     for (let i = 0; i < 10; i++) {
-        array.push(i);
+        array.push(Math.round(Math.random() * 10));
     }
     return array;
 }
@@ -13,6 +13,7 @@ function sum(array) {
     array.forEach(item => {
         sum += item;
     });
+    console.log(array);
     return sum;
 }
 
