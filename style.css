@@ -1,0 +1,35 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 98vh;
+    background: #00D4FF;
+    background: linear-gradient(0deg,rgba(0, 212, 255, 1) 0%, rgba(9, 9, 121, 1) 50%, rgba(2, 0, 36, 1) 100%);
+    overflow: hidden;
+}
+
+h1 {
+    padding-bottom: 0.5em;
+    color: #eee;
+    border-bottom: #eee 5px solid;
+    
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4em;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  background: url('./img/vaso.jpg');
+  border-radius: 50%;
+  height: 70px;
+  display: inline-block;
+  background-size:contain;
+  background-repeat: no-repeat;
+  padding: 0 0.5em;
+  margin: 0 1em;
+  vertical-align: middle;
+}
