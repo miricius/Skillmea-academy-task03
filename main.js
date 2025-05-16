@@ -22,13 +22,19 @@ function sum(array) {
 // MAIN CODE
 array = fillInArray();
 
+
+
 // Sum of array
+// ------------
 console.log(`Celkový súčet poľa 0-10 je: ${sum(array)}`);
 
 // Max number
 console.log('Najväčšie číslo v poli je: ' + Math.max(...array));
 
+
+
 // How many Vashos is in array
+// ---------------------------
 const numberTwo = array.filter(item => item === 1);
 /*
 console.log(numberTwo.length == 0 ? 'V poli nie je žiadny Vašo' :
@@ -50,3 +56,32 @@ switch (numberTwo.length) {
     default:
         console.log(`V poli je ${numberTwo.length} Vašov`);
 }
+
+
+
+// Even and odd numbers
+// --------------------
+const evenNumbers = array.filter(item => item % 2 === 0);
+const oddNumbers = array.filter(item => item % 2 !== 0);
+console.log(`V poli je ${evenNumbers.length} párnych čísel a` +
+    `${oddNumbers.length} nepárnych čísel`);
+
+
+
+// Funkcia na vynásobenie poľa * 10
+// --------------------------------
+let arrayTens = [];
+for (let i in array) {
+    arrayTens[i] = array[i] * 10;    
+}
+console.log(arrayTens);
+
+
+
+// 
+// -----------------
+let arraySecondNumber = [];
+for (let i = 0; i < array.length; i += 2) {
+    arraySecondNumber[i/2] = array[i];
+}
+console.log(arraySecondNumber);  
