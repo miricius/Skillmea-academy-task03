@@ -51,10 +51,19 @@ h1::after {
 }
   */
 
+.board {
+    margin: 150px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .target {
+    margin: 0 40px;
     background-color: transparent;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     border: 10px solid #000;
     border-radius: 50%;
     perspective: 1000px;
@@ -94,7 +103,7 @@ h1::after {
 .target-back {
     background: #000;
     border-radius: 50%;
-    font-size: 8em;
+    font-size: 4em;
     font-weight: 900;
     transform: rotateY(180deg);
 }
