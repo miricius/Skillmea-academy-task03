@@ -1,3 +1,4 @@
+let win = false
 const targetBoard = document.querySelectorAll('.target');
 const targetsArray = document.querySelectorAll('.target p');
 
@@ -66,8 +67,12 @@ for (i = 1; i <= 5; i++) {
 array = shakeArray(array);
 targetBoard.forEach((target, index) => {
     target.addEventListener('mousemove', () => {
-        if (targetsArray[index].innerHTML == 1) {
+        if (targetsArray[index].innerHTML == 1 && win == false) {
             shootConfetti();
+            win = true;
+            setTimeout(() => {
+                alert('Našiel si Vaša!');
+            }, 2000);
         }
     })
 });
