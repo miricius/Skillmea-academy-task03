@@ -1,10 +1,18 @@
 let win = false
 const targetBoard = document.querySelectorAll('.target');
 const targetsArray = document.querySelectorAll('.target p');
+const startButton = document.querySelector('.start-button');
+const boardSection = document.querySelector('.board');
+
+// Start the game
+function startGame() {
+	startButton.style.visibility = 'hidden';
+	boardSection.style.visibility = 'visible';
+}
 
 // Play the pistol shot sound
 function playShotSound () {
-    const audio = new Audio('sound/pistol-shot.mp3');
+	const audio = new Audio('sound/pistol-shot.mp3');
     audio.play();
 }
 
@@ -72,6 +80,9 @@ targetBoard.forEach((target, index) => {
             win = true;
             setTimeout(() => {
                 alert('Našiel si Vaša!');
+				startButton.style.visibility = 'visible';
+				boardSection.style.visibility = 'hidden';
+				win = false;
             }, 2000);
         }
     })
