@@ -76,14 +76,29 @@ array = shakeArray(array);
 targetBoard.forEach((target, index) => {
     target.addEventListener('mousemove', () => {
         if (targetsArray[index].innerHTML == 1 && win == false) {
-            shootConfetti();
+            targetsArray[index].style.transform = 'rotate(720deg)';
+			targetsArray[index].style.transition = 'transform 2s';
+			shootConfetti();
             win = true;
+
+			setTimeout(() => {
+				targetsArray[index].innerHTML = '';
+				targetsArray[index].parentElement.classList.add('target-win');
+			}, 2000);
+
             setTimeout(() => {
-                alert('Našiel si Vaša!');
-				startButton.style.visibility = 'visible';
-				boardSection.style.visibility = 'hidden';
-				win = false;
-            }, 2000);
+				Swal.fire({
+					title: "Našiel si Vaša!",
+					text: "Gratulujem k výhre!",
+					icon: "success	",
+					confirmButtonText: "Hrať znova"
+					}).then((result) => {
+					if (result.isConfirmed) {
+						location.reload();
+					}
+				});
+            }, 4000);
+			
         }
     })
 });

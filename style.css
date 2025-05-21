@@ -109,6 +109,12 @@ h1::after {
     transform: rotateY(180deg);
 }
 
+.target-win {
+    background: url('./img/vaso.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
 .start-button {
     display: flex;
     margin: 0 auto;
