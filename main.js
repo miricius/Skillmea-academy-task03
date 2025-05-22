@@ -116,87 +116,117 @@ const books = [
 	{
 		title: 'Čaroděj Zeměmoří',
 		cover: 'img/carodej_zememori.jpg',
-		author: [
-			{
+		author: {
 				name: 'Ursula K. Le Guin',
 				photo: 'img/ursula_le_guin.jpg',
 				description: 'Ursula K. Le Guin (1929-2018) bola americká spisovateľka, ' +
 					'známa predovšetkým svojou prácou v oblasti fantasy a sci-fi literatúry. ' +
 					'Jej dielo sa vyznačuje hlbokým zamyslením nad otázkami identity, kultúry a spoločnosti.',
 				year: 1929
-			}
-		],
+			},
 		price: 312,
-		date: '2023-10-01',
+		year: 1992,
 		description: 'Zeměmoří - fascinující svět stvořený Velmistryní žánru SF&F Ursulou K. Le Guin.'
 	},
 	{
 		title: 'Harry Potter a Kámen mudrců',
 		cover: 'img/harry_potter.jpg',
-		author: [
-			{
+		author: {
 				name: 'J. K. Rowling',
 				photo: 'img/j_k_rowling.jpg',
 				description: 'Joanne Rowlingová, píšící pod jménem J. K. Rowlingová či pseudonymem Robert Galbraith, ' +
 					'je britská spisovatelka, známá zejména díky sedmidílné řadě knih o čarodějnickém učni Harrym Potterovi, ' +
 					'která získala celosvětový úspěch.',
 				year: 1965
-			}
-		],
+			},
 		price: 269,
-		date: '2024-05-17',
+		year: 1997,
 		description: 'Brýlatý chlapec s nachovou jizvou na čele, připomínající blesk - to je Harry Potter.'
 	},
 	{
 		title: 'Stopařův průvodce Galaxií',
 		cover: 'img/stoparuv_pruvodce.jpg',
-		author: [
-			{
+		author: {
 				name: 'Douglas Adams',
 				photo: 'img/douglas_adams.jpg',
 				description: 'Douglas Noël Adams byl anglický spisovatel, dramatik humoristických rozhlasových pořadů a ' +
 					'hudebník, který proslul knižní sérií Stopařův průvodce po Galaxii.',
 				year: 1952
-			}
-		],
+			},
 		price: 383,
-		date: '2024-05-02',
+		year: 1991,
 		description: 'První část "pětidílné stopařské trilogie", kterou autor původně koncipoval jako rozhlasovou hru pro stanici BBC.'
 	},
 	{
 		title: 'Alenka v říši divů',
 		cover: 'img/alenka_v_risi_divu.jpg',
-		author: [
-			{
+		author: {
 				name: 'Lewis Carroll',
 				photo: 'img/lewis_carroll.jpg',
 				description: 'Charles Lutwidge Dodgson, známý pod pseudonymem Lewis Carroll, byl anglický spisovatel, ' +
 					'matematik, logik, učenec, anglikánský diakon a fotograf. Jeho nejznámější knihou je Alenka v říši divů a ' +
 					'její následné pokračování Za zrcadlem a co tam Alenka našla.',
 				year: 1832
-			}
-		],
+			},
 		price: 110,
-		date: '2025-12-12',
+		year: 2010,
 		description: 'Vydejte se v Alenčiných stopách na fantastickou cestu, na niž nikdy nezapomenete.'
 	},
 	{
 		title: 'Jméno větru',
 		cover: 'img/jmeno_vetru.jpg',
-		author: [
-			{
+		author: {
 				name: 'Patrick Rothfuss',
 				photo: 'img/patrick_rothfuss.jpg',
 				description: 'Patrick James Rothfuss je americký spisovatel fantasy a přednášející na vysoké škole. ' +
 					'Je autorem předpokládané trilogie Kronika Královraha, která byla odmítnuta několika nakladatelstvími ' +
 					'před tím, než první knihu série, Jméno větru, vydala v roce 2007 společnost DAW/Penguin.',
 				year: 1973
-			}
-		],
+			},
 		price: 403,
-		date: '2023-12-25',
+		year: 2008,
 		description: 'Jmenuji se Kvothe. Unášel jsem spícím mohylovým králům ukradené princezny. Spálil jsem město Trebon.'
 	}
 ]
 
-console.log(books);
+
+// Celkova cena vsetkych knih
+let totalPrice = 0;
+books.forEach(book => {
+	totalPrice += book.price;
+});
+
+totalPrice = totalPrice.toLocaleString('cs-CZ', {
+	style: 'currency',
+	currency: 'CZK',
+});
+
+console.log(`Celková cena všetkých kníh je: ${totalPrice}`);
+
+
+// Najdrahsia kniha
+let highestPrice = 0;
+let bookName = '';
+books.forEach(book => {
+	if (book.price > highestPrice) {
+		highestPrice = book.price;
+		bookName = book.title;
+	}
+});
+highestPrice = highestPrice.toLocaleString('cs-CZ', {
+	style: 'currency',
+	currency: 'CZK',
+});
+console.log(`Najdrahšia kniha je ${bookName} a jej cena je: ${highestPrice}.`);
+
+
+// Najstarsia kniha
+let oldestBook = 0;
+let oldestBookName = '';
+books.forEach(book => {
+	if (book.year < oldestBook || oldestBook === 0) {
+		oldestBook = book.year;
+		oldestBookName = book.title;
+	}
+});
+console.log(`Najstaršia kniha je ${oldestBookName} a je z roku ${oldestBook}.`);
