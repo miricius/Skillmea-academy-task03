@@ -1,0 +1,13 @@
+body h1 {
+    margin: 50px auto;
+    text-align: center;
+}
+
+ul {
+    display: flex;
+}   
+
+li {
+    margin: 40px;
+    list-style: none;
+}
