@@ -78,10 +78,32 @@ console.log(arrayTens);
 
 
 
-// 
+// Funkcia pre vypisanie kazdeho druheho cisla
 // -----------------
 let arraySecondNumber = [];
 for (let i = 0; i < array.length; i += 2) {
     arraySecondNumber[i/2] = array[i];
 }
 console.log(arraySecondNumber);  
+
+
+
+// Hviezdicky
+// ----------
+let stars = '';
+for (i=1; i<= 5; i++) {
+	stars += '*';
+	// for (let j=1; j<=i; j++) {
+	// 	stars += '*';
+	// }	
+}
+console.log(`Najprv len 5 hviezdičiek: ${stars}`);
+
+console.log(`Potom pyramida:`);
+for (i=5; i>= 1; i--) {
+	stars = '';
+	for (let j=1; j<=i; j++) {
+		stars += '*';
+	}	
+	console.log(stars);
+}
