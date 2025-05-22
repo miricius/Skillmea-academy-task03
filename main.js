@@ -18,6 +18,20 @@ function sum(array) {
     return sum;
 }
 
+function createNewCard (bookParent, book) {
+	const card = document.createElement('li');
+	card.innerHTML = `
+		<div class="card" style="width: 18rem;">	
+			<img class="card-img-top" src="${book.cover}" alt="${book.title}">
+			<div class="card-body">
+				<h3 class="card-title">${book.title}</h3>
+				<p class="card-text">${book.description}</p>
+			</div>
+		</div>
+	`
+	bookParent.appendChild(card);
+}
+
 
 // MAIN CODE
 array = fillInArray();
@@ -230,3 +244,12 @@ books.forEach(book => {
 	}
 });
 console.log(`Najstaršia kniha je ${oldestBookName} a je z roku ${oldestBook}.`);
+
+
+
+// Uloha 05d - zoznam knih
+// -----------------------
+const bookList = document.querySelector('.cards ul');
+books.forEach(book => {
+	createNewCard(bookList, book);
+});
